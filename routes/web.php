@@ -27,4 +27,5 @@ Route::post('logout', [AuthController::class, 'logoutProcess']);
 
 Route::prefix("dashboard")->middleware([EnsureSessionIsValid::class])->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/table', [DashboardController::class, 'table']);
 });

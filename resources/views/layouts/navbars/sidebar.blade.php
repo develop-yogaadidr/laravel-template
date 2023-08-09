@@ -6,24 +6,24 @@ $menu = [
         'items' => [
             [
                 'id' => 'dashboard',
-                'name' => 'Dashboard',
+                'name' => 'Home',
                 'target' => 'dashboard',
                 'icon' => 'fa-tachometer-alt',
             ],
         ],
     ],
     [
-        'header-name' => 'Interface',
+        'header-name' => 'Interfaces',
         'items' => [
             [
-                'id' => 'components',
-                'name' => 'Components',
+                'id' => 'pages',
+                'name' => 'Pages',
                 'target' => '',
-                'icon' => 'fa-cog',
+                'icon' => 'fa-blank',
                 'sub-items' => [
                     [
-                        'name' => 'Utilities',
-                        'target' => 'dashboard',
+                        'name' => 'Tables',
+                        'target' => 'dashboard/table',
                     ],
                 ],
             ],
@@ -42,14 +42,13 @@ $menu = [
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-    <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
         <div class="sidebar-brand-icon rotate-n-15">
+        L
         </div>
         <div class="sidebar-brand-text mx-3">{{ env('APP_NAME', '') }}</div>
     </a>
 
-    <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
     @foreach ($menu as $element)
@@ -67,7 +66,7 @@ $menu = [
                         data-target="#colapse-{{ $item['id'] }}" aria-expanded="true"
                         aria-controls="collapse-{{ $item['id'] }}">
                         <i class="fas fa-fw {{ $item['icon'] }}"></i>
-                        <span>Components</span>
+                        <span>{{ $item['name'] }}</span>
                     </a>
                     <div id="colapse-{{ $item['id'] }}" class="collapse" aria-labelledby="headingTwo"
                         data-parent="#accordionSidebar">
@@ -88,18 +87,14 @@ $menu = [
             @endif
         @endforeach
 
-        @if ($element['header-name'] != '')
-            <hr class="sidebar-divider">
-        @endif
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
     @endforeach
 
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-
 </ul>
 <!-- End of Sidebar -->

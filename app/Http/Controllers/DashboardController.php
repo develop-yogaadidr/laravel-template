@@ -8,6 +8,11 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        return view('pages.dashboard');
+        return view('pages.dashboard.index', ["title" => "Home"]);
+    }
+
+    public function table(Request $request)
+    {
+        return view('pages.dashboard.table', ["title" => "Table"]);
     }
 }
